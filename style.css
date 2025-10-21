@@ -175,11 +175,11 @@ textarea { resize: vertical; }
 }
 
 /* 3. Die Animationen starten, sobald der Preloader weg ist */
-body.loaded .container h1 { animation-play-state: running; animation-delay: 0.2s; }
-body.loaded .container .subtitle { animation-play-state: running; animation-delay: 0.4s; }
-body.loaded .container .about { animation-play-state: running; animation-delay: 0.6s; }
-body.loaded .container .links { animation-play-state: running; animation-delay: 0.8s; }
-body.loaded .container .btn { animation-play-state: running; animation-delay: 1.0s; }
+body.loaded .container h1 { animation-play-state: running; animation-delay: 0.1s; }
+body.loaded .container .subtitle { animation-play-state: running; animation-delay: 0.2s; }
+body.loaded .container .about { animation-play-state: running; animation-delay: 0.3s; }
+body.loaded .container .links { animation-play-state: running; animation-delay: 0.4s; }
+body.loaded .container .btn { animation-play-state: running; animation-delay: 0.5s; }
 
 
 /* =============================================== */
