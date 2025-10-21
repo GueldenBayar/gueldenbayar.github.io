@@ -23,7 +23,7 @@
     font-weight: 700;
 }
 #preloader.hidden { opacity: 0; visibility: hidden; }
-.container, .contact-page-container { opacity: 0; transition: opacity 0.5s ease 0.5s; }
+.container, .contact-page-container { transition: opacity 0.5s ease 0.5s; }
 body.loaded .container, body .contact-page-container { opacity: 1; }
 /* HINWEIS: body.loaded .contact-page-container existiert nicht,
    daher wird auf der Kontaktseite der Container sofort angezeigt, was korrekt ist. */
@@ -40,10 +40,18 @@ html, body {
 
 /* Typografie */
 h1 {
-    font-family: "BBH Sans Bogle", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 5rem; /* Diese Schrift braucht Größe, um zu wirken! */
+    font-family: 'BBH Sans Bogle', serif;
+    font-size: 4.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    line-height: 1.1;
+
+    /* Die Magie passiert hier: */
+    background: linear-gradient(45deg, var(--accent-color-2), var(--accent-color-1));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent; /* Fallback */
 }
 .subtitle {
     font-size: 2rem; font-weight: 200; color: var(--accent-color-1);
@@ -140,3 +148,61 @@ textarea { resize: vertical; }
     background-color: var(--accent-color-1);
 }
 .btn-submit:hover { background-color: var(--accent-color-2); }
+
+/* Füge diesen Code am Ende deiner style.css ein */
+
+/* 1. Die Keyframe-Animation definieren */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* 2. Die Animation auf die Elemente anwenden, aber anfangs pausiert lassen */
+/* Wir machen sie erst sichtbar, wenn der Body die "loaded"-Klasse hat */
+.container h1,
+.container .subtitle,
+.container .about,
+.container .links,
+.container .btn {
+    animation: fadeInUp 0.8s ease forwards;
+    animation-play-state: paused; /* Wichtig: Animation startet nicht sofort */
+}
+
+/* 3. Die Animationen starten, sobald der Preloader weg ist */
+body.loaded .container h1 { animation-play-state: running; animation-delay: 0.2s; }
+body.loaded .container .subtitle { animation-play-state: running; animation-delay: 0.4s; }
+body.loaded .container .about { animation-play-state: running; animation-delay: 0.6s; }
+body.loaded .container .links { animation-play-state: running; animation-delay: 0.8s; }
+body.loaded .container .btn { animation-play-state: running; animation-delay: 1.0s; }
+
+
+/* =============================================== */
+/* Responsive Anpassungen             */
+/* =============================================== */
+
+/* Für alle Bildschirme, die 600px oder schmaler sind */
+@media (max-width: 600px) {
+
+    /* Wir setzen die Schriftgröße des Loaders zurück auf einen vernünftigen Wert für Handys */
+    #loader-text {
+        font-size: 4rem;
+    }
+
+    /* Dein Name (h1) ist auf dem Handy wahrscheinlich auch zu groß.
+       Den passen wir hier gleich mit an, um das nächste Problem zu vermeiden. */
+    h1 {
+        font-size: 3rem;
+    }
+
+    /* Der "Über mich"-Text könnte auch etwas kleiner sein */
+    .about {
+        font-size: 1.1rem; /* Wir setzen ihn zurück auf eine gut lesbare Größe */
+    }
+
+}
