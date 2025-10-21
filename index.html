@@ -4,155 +4,71 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guelden Bayar // Tech-Portfolio</title>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Lora:wght@700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
 
 <div id="preloader">
     <div id="loader-text">0%</div>
 </div>
 
 <div class="container">
-</div>
-
-
-
-<div class="container">
     <h1>Guelden Bayar</h1>
-
-    <div class="subtitle">
-        <span id="typing-text"></span><span class="cursor"></span>
-    </div>
-
+    <h2 class="subtitle" id="role-rotator">Software Developer</h2>
     <p class="about">
         Hallo Welt! Ich bin eine leidenschaftliche Entwicklerin und Problemlöserin.
         Meine Welt besteht aus sauberem Code, effizienten Systemen und einer guten Tasse Kaffee.
         Ich baue digitale Lösungen, die funktionieren und begeistern.
     </p>
-
     <div class="links">
         <a href="https://github.com/GueldenBayar" target="_blank">GitHub</a>
         <a href="mailto:deine.email@example.com">Mail</a>
     </div>
+
+    <a href="contact.html" class="btn">Kontakt</a>
 </div>
 
 <script>
-
-        document.addEventListener('DOMContentLoaded', function() {
-
-        // --- NEU: Preloader Logik ---
+    document.addEventListener('DOMContentLoaded', function() {
+        // --- Preloader Logik ---
         const preloader = document.getElementById('preloader');
         const loaderText = document.getElementById('loader-text');
         let progress = 0;
-
         const interval = setInterval(() => {
-        progress++;
-        loaderText.textContent = progress + '%';
-
-        if (progress >= 100) {
-        clearInterval(interval); // Stoppt den Zähler bei 100
-
-        // Warte einen kurzen Moment, bevor alles verschwindet
-        setTimeout(() => {
-        preloader.classList.add('hidden'); // Blendet den Ladebildschirm aus
-        document.body.classList.add('loaded'); // Macht den Hauptinhalt sichtbar
-    }, 400);
-    }
-    }, 30); // Die Geschwindigkeit des Zählers in Millisekunden
-
+            progress++;
+            loaderText.textContent = progress + '%';
+            if (progress >= 100) {
+                clearInterval(interval);
+                setTimeout(() => {
+                    preloader.classList.add('hidden');
+                    document.body.classList.add('loaded');
+                }, 400);
+            }
+        }, 30);
 
         // --- Dein bestehender Text-Rotator ---
         const rotatorElement = document.getElementById('role-rotator');
         const roles = ["Software Developer", "Programming Enthusiast", "Linux Fan", "Problem Solver"];
         let currentIndex = 0;
-
         function updateRole() {
-        rotatorElement.style.opacity = '0';
-        setTimeout(() => {
-        currentIndex = (currentIndex + 1) % roles.length;
-        rotatorElement.textContent = roles[currentIndex];
-        rotatorElement.style.opacity = '1';
-    }, 500);
-    }
-
-        // Starte den Rotator erst, wenn die Seite geladen ist
+            rotatorElement.style.opacity = '0';
+            setTimeout(() => {
+                currentIndex = (currentIndex + 1) % roles.length;
+                rotatorElement.textContent = roles[currentIndex];
+                rotatorElement.style.opacity = '1';
+            }, 500);
+        }
         document.body.addEventListener('transitionend', () => {
-        if(document.body.classList.contains('loaded')){
-        setInterval(updateRole, 3000);
-    }
-    }, { once: true });
+            if (document.body.classList.contains('loaded')) {
+                setInterval(updateRole, 3000);
+            }
+        }, { once: true });
+
+        // --- DIE JAVASCRIPT-LOGIK FÜR DAS MODAL WURDE HIER ENTFERNT ---
     });
-
-
-
-    // --- JavaScript für den Schreibmaschinen-Effekt ---
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     const typingTextElement = document.getElementById('typing-text');
-    //     const words = ["Software Developer", "Programming Enthusiast", "Linux Fan", "Problem Solver"];
-    //     let i = 0;
-    //     let j = 0;
-    //     let currentWord = "";
-    //     let isDeleting = false;
-    //
-    //     function type() {
-    //         currentWord = words[i];
-    //         if (isDeleting) {
-    //             // Löschen
-    //             typingTextElement.textContent = currentWord.substring(0, j - 1);
-    //             j--;
-    //             if (j === 0) {
-    //                 isDeleting = false;
-    //                 i++;
-    //                 if (i === words.length) {
-    //                     i = 0;
-    //                 }
-    //             }
-    //         } else {
-    //             // Schreiben
-    //             typingTextElement.textContent = currentWord.substring(0, j + 1);
-    //             j++;
-    //             if (j === currentWord.length) {
-    //                 isDeleting = true;
-    //                 // Kurze Pause nach dem Schreiben eines Wortes
-    //                 setTimeout(type, 2000);
-    //                 return;
-    //             }
-    //         }
-    //         // Geschwindigkeit des Schreibens/Löschens
-    //         const typeSpeed = isDeleting ? 50 : 150;
-    //         setTimeout(type, typeSpeed);
-    //     }
-    //
-    //     type();
-    // });
-    // document.addEventListener('DOMContentLoaded', function() {
-    //     const rotatorElement = document.getElementById('role-rotator');
-    //     const roles = ["Software Developer", "Programming Enthusiast", "Linux Fan", "Problem Solver"];
-    //     let currentIndex = 0;
-    //
-    //     function updateRole() {
-    //         // Fade out
-    //         rotatorElement.style.opacity = '0';
-    //
-    //         setTimeout(() => {
-    //             // Index wechseln
-    //             currentIndex = (currentIndex + 1) % roles.length;
-    //             // Text aktualisieren
-    //             rotatorElement.textContent = roles[currentIndex];
-    //             // Fade in
-    //             rotatorElement.style.opacity = '1';
-    //         }, 500); // 0.5s für den Fade-Out
-    //     }
-    //
-    //     // Starte den Wechsel alle 3 Sekunden
-    //     setInterval(updateRole, 3000);
-    // });
 </script>
 
 </body>
