@@ -23,7 +23,10 @@
     font-weight: 700;
 }
 #preloader.hidden { opacity: 0; visibility: hidden; }
-.container, .contact-page-container { transition: opacity 0.5s ease 0.5s; }
+.container, .contact-page-container {
+    transition: opacity 0.5s ease; /* Delay entfernt */
+    opacity: 0; /* Container ist erst unsichtbar */
+}
 body.loaded .container, body .contact-page-container { opacity: 1; }
 /* HINWEIS: body.loaded .contact-page-container existiert nicht,
    daher wird auf der Kontaktseite der Container sofort angezeigt, was korrekt ist. */
@@ -88,7 +91,7 @@ h1 {
     color: #fff; /* Fester Weißwert für besseren Kontrast */
     padding: 1rem 2rem; margin-top: 2.5rem;
     border: none; border-radius: 5px;
-    font-size: rem; font-weight: 300; cursor: pointer;
+    font-size: 1.2rem; font-weight: 300; cursor: pointer;
     transition: background-color 0.3s ease, transform 0.1s ease;
     text-decoration: none;
 }
@@ -103,8 +106,6 @@ h1 {
     font-family: "BBH Sans Bogle", sans-serif;
     background-color: var(--bg-color);
     padding: 2.5rem;
-    /*border-radius: 8px;*/
-    /*box-shadow: 0 5px 25px rgba(0,0,0,0.1);*/
     width: 90%;
     max-width: 1000px;
     text-align: left;
@@ -156,7 +157,7 @@ textarea { resize: vertical; }
 @keyframes fadeInUp {
     from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
     }
     to {
         opacity: 1;
@@ -164,23 +165,39 @@ textarea { resize: vertical; }
     }
 }
 
-/* 2. Die Animation auf die Elemente anwenden, aber anfangs pausiert lassen */
+/* 2. Initialzustand, Die Animation auf die Elemente anwenden, aber anfangs pausiert lassen */
 /* Wir machen sie erst sichtbar, wenn der Body die "loaded"-Klasse hat */
 .container h1,
 .container .subtitle,
 .container .about,
 .container .links,
 .container .btn {
-    animation: fadeInUp 0.8s ease forwards;
-    animation-play-state: paused; /* Wichtig: Animation startet nicht sofort */
+    opacity: 0; /* startet unsichtbar */
+    transform: translateY(30px); /* Startet versetzt */
+    /*animation-play-state: paused; !* Wichtig: Animation startet nicht sofort *!*/
 }
 
-/* 3. Die Animationen starten, sobald der Preloader weg ist */
-body.loaded .container h1 { animation-play-state: running; animation-delay: 0.1s; }
-body.loaded .container .subtitle { animation-play-state: running; animation-delay: 0.2s; }
-body.loaded .container .about { animation-play-state: running; animation-delay: 0.3s; }
-body.loaded .container .links { animation-play-state: running; animation-delay: 0.4s; }
-body.loaded .container .btn { animation-play-state: running; animation-delay: 0.5s; }
+/* 3. Animation starten, sobald "loaded" Klasse da ist */
+body.loaded .container h1 {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.1s;
+}
+body.loaded .container .subtitle {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.3s; /* Längerer Abstand für besseren Fluss */
+}
+body.loaded .container .about {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.5s;
+}
+body.loaded .container .links {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.7s;
+}
+body.loaded .container .btn {
+    animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+    animation-delay: 0.9s;
+}
 
 
 /* =============================================== */
