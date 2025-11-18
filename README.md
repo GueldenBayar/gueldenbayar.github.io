@@ -1,2 +1,5 @@
 # gueldenbayar.github.io
-soon to be portfolio page
+
+my first own Portfolio Page
+
+Simple & Informative <3
