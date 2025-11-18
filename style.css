@@ -179,8 +179,7 @@ textarea { resize: vertical; }
 .container h1,
 .container .subtitle,
 .container .about,
-.container .links,
-.container .btn {
+.container .links {
     opacity: 0; /* startet unsichtbar */
     transform: translateY(30px); /* Startet versetzt */
     /*animation-play-state: paused; !* Wichtig: Animation startet nicht sofort *!*/
