@@ -54,23 +54,89 @@ body.loaded .container, body .contact-page-container {
     margin: 0;
     padding: 0;
 }
+body {
+    line-height: 1.6;
+    margin: 0;
+    padding-top: 60px;
+    /*font-family: sans-serif;*/
+}
+
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: rgba(248, 248, 248, 0.95);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000; /* ensures it stays on top of other content */
+    transition: all 0.3s ease;
+}
+
+.navbar ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    gap: 40px;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: var(--fg-color); /* Dunkelgrau statt Weiß! */
+    font-family: 'Poppins', sans-serif;
+    font-weight: 500;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px; /* Editorial Look */
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.navbar a:hover {
+    color: var(--accent-color-1);
+}
+
+.navbar a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 1px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-color-1);
+    transition: width 0.3s ease;
+}
+
+.navbar a:hover::after {
+    width: 100%;
+}
 
 html, body {
     background-color: var(--bg-color);
     color: var(--fg-color);
     font-family: 'BBH Sans Bogle', sans-serif;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+
+    margin: 0;
+    padding: 0;
+    display: block;
+    height: auto;
     min-height: 100vh;
-    padding: 2rem;
-    text-align: center;
+    /*display: flex;*/
+    /*justify-content: center;*/
+    /*align-items: center;*/
+    /*min-height: 100vh;*/
+    /*padding: 2rem;*/
+    /*text-align: center;*/
 }
 
 .container {
-    max-width: 700px;
-    width: 100%;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 0 20px;
+    /*width: 100%;*/
 }
 
 /* Typografie */
@@ -366,6 +432,39 @@ textarea {
     color: #000;
 }
 
+.projects-section {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.project-card {
+    background: #f4f4f4;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    text-align: left;
+    transition: transform 0.2s;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-links a {
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    color: #007BFF;
+    font-weight: bold;
+}
 
 /* 1. Die Keyframe-Animation definieren */
 @keyframes fadeInUp {
