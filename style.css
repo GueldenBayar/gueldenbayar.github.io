@@ -9,37 +9,69 @@
 
 /* Preloader Styling */
 #preloader {
-    position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
     background-color: var(--bg-color);
-    display: flex; justify-content: center; align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     z-index: 9999;
     transition: opacity 0.8s ease, visibility 0.8s ease;
-    opacity: 1; visibility: visible;
+    opacity: 1;
+    visibility: visible;
 }
+
 #loader-text {
     font-family: 'Lora', serif;
     font-size: 20rem; /* GRÖSSERER TEXT */
     color: var(--accent-color-2);
     font-weight: 700;
 }
-#preloader.hidden { opacity: 0; visibility: hidden; }
+
+#preloader.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
 .container, .contact-page-container {
     transition: opacity 0.5s ease; /* Delay entfernt */
     opacity: 0; /* Container ist erst unsichtbar */
 }
-body.loaded .container, body .contact-page-container { opacity: 1; }
+
+body.loaded .container, body .contact-page-container {
+    opacity: 1;
+}
+
 /* HINWEIS: body.loaded .contact-page-container existiert nicht,
    daher wird auf der Kontaktseite der Container sofort angezeigt, was korrekt ist. */
 
 /* Grundlegende Styles */
-* { box-sizing: border-box; margin: 0; padding: 0; }
-html, body {
-    background-color: var(--bg-color); color: var(--fg-color);
-    font-family: 'BBH Sans Bogle', sans-serif; line-height: 1.6;
-    display: flex; justify-content: center; align-items: center;
-    min-height: 100vh; padding: 2rem; text-align: center;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
 }
-.container { max-width: 700px; width: 100%; }
+
+html, body {
+    background-color: var(--bg-color);
+    color: var(--fg-color);
+    font-family: 'BBH Sans Bogle', sans-serif;
+    line-height: 1.6;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
+    text-align: center;
+}
+
+.container {
+    max-width: 700px;
+    width: 100%;
+}
 
 /* Typografie */
 h1 {
@@ -56,14 +88,20 @@ h1 {
     background-clip: text;
     color: transparent; /* Fallback */
 }
+
 .subtitle {
-    font-size: 2rem; font-weight: 200; color: var(--accent-color-1);
-    margin-bottom: 2.5rem; height: 1.5em;
+    font-size: 2rem;
+    font-weight: 200;
+    color: var(--accent-color-1);
+    margin-bottom: 2.5rem;
+    height: 1.5em;
     transition: opacity 0.5s ease-in-out;
 }
+
 .about {
     font-size: 2rem;
-    color: var(--fg-color); max-width: 1300px;
+    color: var(--fg-color);
+    max-width: 1300px;
     margin: 0 auto 2.5rem auto;
 }
 
@@ -96,33 +134,47 @@ h1 {
 /* Button Styling */
 .btn {
     font-family: "BBH Sans Bogle", sans-serif;
-    display: inline-block; background-color: var(--accent-color-2);
+    display: inline-block;
+    background-color: var(--accent-color-2);
     color: #fff; /* Fester Weißwert für besseren Kontrast */
-    padding: 1rem 2rem; margin-top: 2.5rem;
-    border: none; border-radius: 5px;
-    font-size: 1.2rem; font-weight: 300; cursor: pointer;
+    padding: 1rem 2rem;
+    margin-top: 2.5rem;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    font-weight: 300;
+    cursor: pointer;
     transition: background-color 0.3s ease, transform 0.1s ease;
     text-decoration: none;
 }
+
 .btn:hover {
     background-color: var(--accent-color-1);
     transform: translateY(-2px);
 }
-.btn:active { transform: translateY(0); }
+
+.btn:active {
+    transform: translateY(0);
+}
 
 /* --- STYLES FÜR DIE NEUE KONTAKTSEITE --- */
 .contact-page-container {
-    font-family: "BBH Sans Bogle", sans-serif;
+    font-family: "poppins", sans-serif;
     background-color: var(--bg-color);
     padding: 2.5rem;
     width: 90%;
     max-width: 1000px;
     text-align: left;
 }
+
 .contact-page-container h2 {
-    font-family: "BBH Sans Bogle", sans-serif; color: var(--accent-color-1);
-    margin-bottom: 1.5rem; font-size: 2.5rem; text-align: center;
+    font-family: "poppins", sans-serif;
+    color: var(--accent-color-1);
+    margin-bottom: 1.5rem;
+    font-size: 2.5rem;
+    text-align: center;
 }
+
 .back-link {
     display: block;
     text-align: center;
@@ -132,33 +184,54 @@ h1 {
     font-weight: 600;
     transition: color 0.3s ease;
 }
-.back-link:hover { color: var(--accent-color-1); }
+
+.back-link:hover {
+    color: var(--accent-color-1);
+}
 
 /* --- FORMULAR-STYLING (jetzt für die Kontaktseite) --- */
-.form-group { margin-bottom: 1.5rem; }
-.form-group label {
-    display: block; margin-bottom: 0.5rem;
-    font-weight: 600; color: var(--fg-color);
+.form-group {
+    margin-bottom: 1.5rem;
 }
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--fg-color);
+}
+
 .form-group input, .form-group textarea {
-    width: 100%; padding: 0.8rem;
+    width: 100%;
+    padding: 0.8rem;
     border: 1px solid #ccc; /* Etwas dunklerer Rand */
-    border-radius: 4px; background-color: #fff; /* Weißes Feld */
-    color: var(--fg-color); font-family: "BBH Sans Bogle", sans-serif;
+    border-radius: 4px;
+    background-color: #fff; /* Weißes Feld */
+    color: var(--fg-color);
+    font-family: "Poppins", sans-serif;
     font-size: 1rem;
     transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
+
 .form-group input:focus, .form-group textarea:focus {
     border-color: var(--accent-color-1);
     outline: none;
     box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
 }
-textarea { resize: vertical; }
+
+textarea {
+    resize: vertical;
+}
+
 .btn-submit {
-    width: 100%; margin-top: 1rem;
+    width: 100%;
+    margin-top: 1rem;
     background-color: var(--accent-color-1);
 }
-.btn-submit:hover { background-color: var(--accent-color-2); }
+
+.btn-submit:hover {
+    background-color: var(--accent-color-2);
+}
 
 /* Füge diesen Code am Ende deiner style.css ein */
 
@@ -190,55 +263,125 @@ body.loaded .container h1 {
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.1s;
 }
+
 body.loaded .container .subtitle {
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.3s; /* Längerer Abstand für besseren Fluss */
 }
+
 body.loaded .container .about {
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.5s;
 }
+
 body.loaded .container .tech-stack {
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.6s;
 }
+
 body.loaded .container .links {
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.7s;
 }
+
 body.loaded .container .button-group {
     animation: fadeInUp 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
     animation-delay: 0.8s;
 }
 
+/*.tech-stack {*/
+/*    display: flex;*/
+/*    justify-content: center;*/
+/*    flex-wrap: wrap;*/
+/*    gap: 10px;*/
+/*    margin-bottom: 2rem;*/
+/*    opacity: 0; !* Für Animation vorbereitet*!*/
+/*    transform: translateY(20px); !*Für Animation vorbereitet*!*/
+/*}*/
+
+/*.tech-stack span {*/
+/*    font-family: 'Libre Baskerville', serif;*/
+/*    font-size: 0.9rem;*/
+/*    background-color: #fff;*/
+/*    border: 1px solid #ddd;*/
+/*    color: var(--fg-color);*/
+/*    padding: 5px 12px;*/
+/*    border-radius: 20px;*/
+/*    transition: all 0.3s ease;*/
+/*    cursor: default;*/
+/*}*/
+
+/*.tech-stack span:hover {*/
+/*    border-color: var(--accent-color-1);*/
+/*    color: var(--accent-color-1);*/
+/*    transform: translateY(-3px);*/
+/*    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);*/
+/*}*/
+
+/* --- NEUES TECH STACK STYLING (Icons) --- */
 .tech-stack {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 10px;
+    gap: 30px; /* Mehr Platz zwischen den Icons */
     margin-bottom: 2rem;
-    opacity: 0; /* Für Animation vorbereitet*/
-    transform: translateY(20px); /*Für Animation vorbereitet*/
+    opacity: 0;
+    transform: translateY(20px);
 }
 
-.tech-stack span {
-    font-family: 'Libre Baskerville', serif;
+.tech-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    transition: transform 0.2s ease;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Icon Styling */
+.tech-item img {
+    width: 60px;
+    height: 60px;
+    filter: grayscale(100%);
+    /*font-size: 3.5rem; !* Größe der Icons *!*/
+    /*font-family: 'devicon', 'serif' !important;*/
+     /* Startet Schwarz-Weiß */
+    opacity: 0.7; /* Etwas dezenter am Anfang */
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Text unter dem Icon */
+.tech-item span {
+    font-family: 'BBH Sans Bogle', sans-serif;
     font-size: 0.9rem;
-    background-color: #fff;
-    border: 1px solid #ddd;
-    color: var(--fg-color);
-    padding: 5px 12px;
-    border-radius: 20px;
+    color: var(--accent-color-1);
+    opacity: 0; /* Text ist unsichtbar */
+    transform: translateY(-10px); /* Text ist leicht nach oben verschoben */
     transition: all 0.3s ease;
-    cursor: default;
+    position: absolute;
+    bottom: -25px; /* Positioniert den Text unter dem Icon */
+    white-space: nowrap;
+    font-weight: 600;
 }
 
-.tech-stack span:hover {
-    border-color: var(--accent-color-1);
-    color: var(--accent-color-1);
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+/* --- Hover Effekte --- */
+.tech-item:hover {
+    transform: translateY(-5px); /* Ganzes Element schwebt hoch */
 }
+
+.tech-item:hover img {
+    filter: grayscale(0%); /* Farbe kommt zurück */
+    opacity: 1;
+    transform: scale(1.1); /* Icon wird leicht größer */
+}
+
+.tech-item:hover span {
+    opacity: 1; /* Text wird sichtbar */
+    transform: translateY(0); /* Text gleitet an die richtige Stelle */
+}
+
+
 
 /* --- Button-Group --- */
 .button-group {
@@ -301,4 +444,15 @@ body.loaded .container .button-group {
         font-size: 1.1rem; /* Wir setzen ihn zurück auf eine gut lesbare Größe */
     }
 
+}
+
+/* Responsive Anpassung für kleine Handys */
+@media (max-width: 480px) {
+    .tech-stack {
+        gap: 20px;
+    }
+    .tech-item img {
+        width: 40px;
+        height: 40px;
+    }
 }

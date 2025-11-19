@@ -6,7 +6,9 @@
     <title>Guelden Bayar // Tech-Portfolio</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=BBH+Sans+Bogle&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;800&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap"
+          rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicon/devicon@v2.15.1/devicon.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -25,16 +27,52 @@
         Ich baue digitale Lösungen, die funktionieren und begeistern.
     </p>
     <div class="tech-stack">
-        <span>HTML5</span>
-        <span>CSS3</span>
-        <span>JavaScript</span>
-        <span>Linux</span>
-        <span>PHP</span>
-        <span>Python</span>
-        <span>Docker</span>
-        <span>SQL</span>
-        <span>Git</span>
+        <div class="tech-item">
+            <img src="https://cdn.simpleicons.org/html5/E34F26" alt="HTML5 Logo">
+            <span>HTML5</span>
+        </div>
+
+        <div class="tech-item">
+            <img src="https://upload.wikimedia.org/wikipedia/commons/6/62/CSS3_logo.svg" alt="CSS3 Logo">
+            <span>CSS3</span>
+        </div>
+
+        <div class="tech-item">
+            <img src="https://cdn.simpleicons.org/javascript/F7DF1E" alt="JavaScript Logo">
+            <span>JavaScript</span>
+        </div>
+
+        <div class="tech-item">
+            <img src="https://cdn.simpleicons.org/react/61DAFB" alt="React Logo">
+            <span>React</span>
+        </div>
+
+        <div class="tech-item">
+            <img src="https://cdn.simpleicons.org/python/3776AB" alt="Python Logo">
+            <span>Python</span>
+        </div>
+
+        <div class="tech-item">
+            <img src="https://cdn.simpleicons.org/mysql/4479A1" alt="SQL Logo">
+            <span>SQL</span>
+        </div>
+
+        <div class="tech-item">
+            <img src="https://cdn.simpleicons.org/git/F05032" alt="Git Logo">
+            <span>Git</span>
+        </div>
+
+        <div class="tech-item">
+            <img src="https://cdn.simpleicons.org/docker/2496ED" alt="Docker Logo">
+            <span>Docker</span>
+        </div>
+
+        <div class="tech-item">
+            <img src="https://cdn.simpleicons.org/linux/FCC624" alt="Linux Logo">
+            <span>Linux</span>
+        </div>
     </div>
+
     <div class="links">
         <a href="https://github.com/GueldenBayar" target="_blank" aria-label="GitHub">
             <i class="fa-brands fa-github"></i>
@@ -55,7 +93,7 @@
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
+    document.addEventListener('DOMContentLoaded', function () {
         // --- Preloader Logik ---
         const preloader = document.getElementById('preloader');
         const loaderText = document.getElementById('loader-text');
@@ -76,6 +114,7 @@
         const rotatorElement = document.getElementById('role-rotator');
         const roles = ["aspiring Dev", "Coding Enthusiast", "Linux Fan", "Problem Solver", "Dog mum"];
         let currentIndex = 0;
+
         function updateRole() {
             rotatorElement.style.opacity = '0';
             setTimeout(() => {
@@ -84,11 +123,12 @@
                 rotatorElement.style.opacity = '1';
             }, 500);
         }
+
         document.body.addEventListener('transitionend', () => {
             if (document.body.classList.contains('loaded')) {
                 setInterval(updateRole, 3000);
             }
-        }, { once: true });
+        }, {once: true});
 
         // --- DIE JAVASCRIPT-LOGIK FÜR DAS MODAL WURDE HIER ENTFERNT ---
     });
